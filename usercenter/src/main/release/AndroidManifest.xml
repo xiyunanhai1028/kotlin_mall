@@ -3,7 +3,7 @@
           package="com.kotlin.usercenter">
 
     <application>
-        <activity android:name=".ui.RegisterActivity">
+        <activity android:name=".ui.activity.RegisterActivity">
         </activity>
     </application>
 
