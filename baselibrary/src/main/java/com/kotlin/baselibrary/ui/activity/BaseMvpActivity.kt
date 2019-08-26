@@ -17,5 +17,6 @@ open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
     }
 
     override fun onError() {
+
     }
 }

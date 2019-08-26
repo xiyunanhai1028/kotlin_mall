@@ -20,7 +20,8 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
         mPresenter.mView = this
         register.setOnClickListener {
             //            Toast.makeText(this, "register", Toast.LENGTH_LONG).show()
-            mPresenter.register("1", "1")
+            mPresenter.register("1", "1","")
+
         }
     }
 }
