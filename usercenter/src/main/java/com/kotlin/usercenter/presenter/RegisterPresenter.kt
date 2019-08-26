@@ -1,5 +1,6 @@
 package com.kotlin.usercenter.presenter
 
+import com.kotlin.baselibrary.data.protocol.BaseResp
 import com.kotlin.baselibrary.ext.execute
 import com.kotlin.baselibrary.presenter.BasePresenter
 import com.kotlin.baselibrary.rx.BaseObserver
@@ -15,9 +16,12 @@ open class RegisterPresenter : BasePresenter<RegisterView>() {
     fun register(mobile: String, code: String, psw: String) {
         var userService = UserServiceImpl()
         userService.register(mobile, code, psw)
-            .execute(object : BaseObserver<Boolean>() {
-                override fun onNext(t: Boolean) {
-                    mView.registerResult(t)
+            .execute(object : BaseObserver<BaseResp<String>>() {
+                override fun onNext(t: BaseResp<String>) {
+                    if(t.status===0){
+
+                    }
+//                    mView.registerResult(t)
                 }
             })
     }
