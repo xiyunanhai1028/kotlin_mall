@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">UserCenter</string>
+    <string name="icon_delete">icon_delete</string>
+    <string name="hello">您好，</string>
+    <string name="wellcome_qingning">欢迎来到清柠汽车</string>
+    <string name="mobile">手机号码</string>
+    <string name="service_agreement">服务协议</string>
+    <string name="next_step">下一步</string>
+    <string name="vertifycode">请输入验证码</string>
+    <string name="passworld">请输入密码</string>
+    <string name="logo">logo</string>
 </resources>

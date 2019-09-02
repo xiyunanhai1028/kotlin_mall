@@ -5,7 +5,7 @@ if(isUserModule.toBoolean()){
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
 
@@ -17,7 +17,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -49,4 +49,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api project(path: ':baselibrary')
 
+    kapt 'com.google.dagger:dagger-compiler:2.5'
 }

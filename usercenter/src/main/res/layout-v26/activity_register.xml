@@ -13,7 +13,7 @@
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                           android:id="@+id/guideline3"
                                           android:orientation="horizontal"
-                                          app:layout_constraintGuide_percent="0.19"/>
+                                          app:layout_constraintGuide_percent="0.27"/>
     <TextView
             android:text="@string/hello"
             android:layout_width="wrap_content"
@@ -32,11 +32,11 @@
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                           android:id="@+id/guideline4"
                                           android:orientation="horizontal"
-                                          app:layout_constraintGuide_percent="0.36"/>
+                                          app:layout_constraintGuide_percent="0.41"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="number|phone"
+            android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/mobile" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline6" android:layout_marginStart="8dp"
@@ -46,23 +46,22 @@
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                           android:id="@+id/guideline6"
                                           android:orientation="vertical" app:layout_constraintGuide_end="24dp"/>
-    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                          android:id="@+id/guideline7" app:layout_constraintGuide_begin="525dp"
-                                          android:orientation="horizontal"/>
     <Button
             android:text="@string/next_step"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/registerBtn"
-            app:layout_constraintTop_toTopOf="@+id/guideline7"
             android:textColor="@color/txt_fff"
-            android:background="@color/colorPrimaryDark" android:layout_marginTop="4dp"
+            android:background="@color/colorPrimaryDark"
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="@+id/guideline"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline6"/>
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="154dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vertifyCode" android:layout_marginBottom="153dp"/>
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned|number"
+            android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/vertifyCode"
             app:layout_constraintStart_toStartOf="@+id/guideline" android:layout_marginStart="8dp"
@@ -72,11 +71,17 @@
     <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
+            android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/password" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="@+id/guideline" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline6" android:hint="@string/passworld"
             android:layout_marginTop="18dp" app:layout_constraintTop_toBottomOf="@+id/vertifyCode"
             android:autofillHints=""/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/ic_logo"
+            android:id="@+id/imageView2" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="47dp"
+            app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/logo"/>
 </android.support.constraint.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.kotlin.usercenter.data.api
 
 import com.kotlin.baselibrary.data.protocol.BaseResp
 import com.kotlin.usercenter.data.protocal.RegisterReq
+import com.kotlin.usercenter.data.response.UserInfo
 import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -12,6 +13,6 @@ import retrofit2.http.POST
  *    desc   :
  */
 interface UserApi {
-    @POST("userCenter/register")
-    fun register(@Body req: RegisterReq): Observable<BaseResp<String>>
+    @POST("plutus2-customer/userBorrower/loginByMobile")
+    fun register(@Body req: RegisterReq): Observable<BaseResp<UserInfo>>
 }

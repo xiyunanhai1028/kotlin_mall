@@ -1,6 +1,7 @@
 package com.kotlin.usercenter.service
 
 import com.kotlin.baselibrary.data.protocol.BaseResp
+import com.kotlin.usercenter.data.response.UserInfo
 import io.reactivex.Observable
 
 /**
@@ -9,5 +10,5 @@ import io.reactivex.Observable
  *    desc   :
  */
 interface UserService {
-    fun register(mobile: String, code: String, psw: String): Observable<BaseResp<String>>
+    fun register(mobile: String, code: String, psw: String): Observable<UserInfo>
 }
