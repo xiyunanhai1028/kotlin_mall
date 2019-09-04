@@ -9,4 +9,7 @@
     <string name="vertifycode">请输入验证码</string>
     <string name="passworld">请输入密码</string>
     <string name="logo">logo</string>
+    <string name="input_vertify_code">输入验证码</string>
+    <string name="vertify_code_send_to">验证码已发送至</string>
+    <string name="login">登录</string>
 </resources>

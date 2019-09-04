@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:background="@color/colorPrimary">
+    <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_centerVertical="true"
+            android:visibility="gone"/>
+    <TextView
+            android:id="@+id/backTv"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/back_txt"
+            android:textColor="@color/txt_fff"
+            android:textSize="@dimen/sp_16"
+            android:layout_centerVertical="true"
+            android:visibility="gone"/>
+    <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:textColor="@color/txt_fff"/>
+    <ImageView
+            android:id="@+id/addIv"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:src="@drawable/ic_add"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"/>
+    <TextView
+            android:id="@+id/addTv"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/add"
+            android:textColor="@color/txt_fff"
+            android:textSize="@dimen/sp_16"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            android:layout_centerVertical="true"/>
+</RelativeLayout>

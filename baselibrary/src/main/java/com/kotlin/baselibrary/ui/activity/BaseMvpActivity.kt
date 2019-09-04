@@ -1,6 +1,7 @@
 package com.kotlin.baselibrary.ui.activity
 
 import android.os.Bundle
+import android.widget.Toast
 import com.kotlin.baselibrary.common.BaseApplication
 import com.kotlin.baselibrary.injection.component.ActivityComponent
 import com.kotlin.baselibrary.injection.component.DaggerActivityComponent
@@ -8,6 +9,7 @@ import com.kotlin.baselibrary.injection.module.ActivityModule
 import com.kotlin.baselibrary.injection.module.LifecycleProvideModule
 import com.kotlin.baselibrary.presenter.BasePresenter
 import com.kotlin.baselibrary.presenter.view.BaseView
+import com.kotlin.baselibrary.widget.ProgressDialog
 import javax.inject.Inject
 
 /**
@@ -20,10 +22,14 @@ open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), Base
     lateinit var mPresenter: T
 
     lateinit var ativityComponent: ActivityComponent
+
+    private lateinit var progressDialog: ProgressDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initActivityInjection()
         injectComponent()
+        progressDialog = ProgressDialog.create(this)
     }
 
     abstract fun injectComponent()
@@ -37,13 +43,15 @@ open abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), Base
     }
 
     override fun showLoading() {
+        progressDialog.showLoading()
     }
 
     override fun hideLoading() {
+        progressDialog.cancelLoading()
     }
 
-    override fun onError() {
-
+    override fun onError(text: String) {
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
     }
 
 }

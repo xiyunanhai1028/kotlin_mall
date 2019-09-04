@@ -3,25 +3,30 @@ package com.kotlin.usercenter.ui.activity
 import android.os.Bundle
 import android.widget.Toast
 import com.kotlin.baselibrary.common.AppManager
+import com.kotlin.baselibrary.ext.enable
 import com.kotlin.baselibrary.ext.onClick
 import com.kotlin.baselibrary.ui.activity.BaseMvpActivity
 import com.kotlin.usercenter.R
-import com.kotlin.usercenter.data.response.UserInfo
 import com.kotlin.usercenter.injection.component.DaggerUserComponent
 import com.kotlin.usercenter.presenter.RegisterPresenter
 import com.kotlin.usercenter.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
+import org.jetbrains.anko.startActivity
 
 class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
+
     private var pressTime: Long = 0
     override fun injectComponent() {
         DaggerUserComponent.builder().activityComponent(ativityComponent).build().inject(this)
         mPresenter.mView = this
     }
 
-    override fun registerResult(result: UserInfo) {
-        if (result != null) {
-            Toast.makeText(this, "注册成功", Toast.LENGTH_LONG).show()
+    override fun registerResult(result: String) {
+        if (!result.isNullOrEmpty()) {
+            var bundle = Bundle()
+            bundle.putString("tattedId", result)
+            bundle.putString("mobile", mobileTv.text.toString())
+            startActivity<LoginActivity>("bundle" to bundle)
         }
     }
 
@@ -29,14 +34,17 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        registerBtn.onClick {
-            mPresenter.register(
-                mobile.text.toString(),
-                vertifyCode.text.toString(),
-                password.text.toString()
-            )
+        initView()
+    }
+
+    private fun initView() {
+        nextStep.enable(mobileTv) { isBtnEnable() }
+
+        nextStep.onClick {
+            mPresenter.register(mobileTv.text.toString())
         }
     }
+
 
     override fun onBackPressed() {
         var time = System.currentTimeMillis()
@@ -48,4 +56,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
         }
     }
 
+    private fun isBtnEnable(): Boolean {
+        return mobileTv.text.isNullOrEmpty().not()
+    }
 }

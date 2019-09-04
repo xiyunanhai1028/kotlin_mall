@@ -1,7 +1,6 @@
 package com.kotlin.usercenter.presenter.view
 
 import com.kotlin.baselibrary.presenter.view.BaseView
-import com.kotlin.usercenter.data.response.UserInfo
 
 /**
  *    author : dufeihu
@@ -9,5 +8,5 @@ import com.kotlin.usercenter.data.response.UserInfo
  *    desc   :
  */
 interface RegisterView : BaseView {
-    fun registerResult(result: UserInfo)
+    fun registerResult(result: String)
 }

@@ -1,6 +1,7 @@
 package com.kotlin.baselibrary.rx
 
 import android.util.Log
+import com.kotlin.baselibrary.presenter.view.BaseView
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 
@@ -9,8 +10,9 @@ import io.reactivex.disposables.Disposable
  *    date   : 2019/8/26 15:49
  *    desc   :
  */
-open class BaseObserver<T> : Observer<T> {
+open class BaseObserver<T>(val baseView: BaseView) : Observer<T> {
     override fun onComplete() {
+        baseView.hideLoading()
     }
 
     override fun onSubscribe(d: Disposable) {
@@ -22,6 +24,10 @@ open class BaseObserver<T> : Observer<T> {
 
     override fun onError(e: Throwable) {
         Log.d("df", "onError:" + e.toString())
+        baseView.hideLoading()
+        if (e is BaseException) {
+            baseView.onError(e.toString())
+        }
     }
 
 }

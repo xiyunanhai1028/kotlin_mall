@@ -6,7 +6,9 @@ package com.kotlin.baselibrary.common
  *    desc   :
  */
 class BaseConstant {
-    companion object{
-        val BASE_URL="http://malldev.lemonev.com:8762/"
+    companion object {
+        val BASE_URL = "http://malldev.lemonev.com:8762/"
+
+        val TABLE_PREFS = "kotlin_mall"
     }
 }

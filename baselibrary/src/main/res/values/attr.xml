@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeaderBar">
+        <attr name="isShowLeftIcon" format="boolean"/>
+        <attr name="leftTxt" format="string"/>
+        <attr name="titleTxt" format="string"/>
+        <attr name="isShowRigthIcon" format="boolean"/>
+        <attr name="rigthTxt" format="string"/>
+    </declare-styleable>
+
+</resources>
